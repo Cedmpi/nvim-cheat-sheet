@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vim Cheat Sheet</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="web-components.js"></script>
+</head>
+
+<!-- https://www.reddit.com/r/vim/comments/18b1nqj/neovim_cheat_sheet/#lightbox -->
+<!-- https://github.com/pop-os/wallpapers -->
+<!-- https://www.reddit.com/r/vim/comments/1afqn9c/i_printed_my_vim_cheat_sheet_i_hope_it_is_in_some/#lightbox -->
+<!-- https://neovim.io/doc/user/quickref.html -->
+
+<body>
+    <div style="display: flex;align-items: center; gap: 1rem; margin-bottom: 2rem;">
+        <img src="neovim-mark.svg" alt="" style="height: 4rem;">
+        <a href="https://neovim.io/doc/user/quickref.html#quickref" target="_blank">
+            <h1 style="color: #4f9946;"><span style="font-weight:100;">neo</span>vim <span style="color: #fff;">Cheat
+                    Sheet</span> </h1>
+        </a>
+    </div>
+    <div class="container">
+
+
+        <section>
+            <h2 class="ribbon" style="background-color: #aba9ff;">How to think in vim</h2>
+            <p>To be efficient in VIM, learning commands is not enough.
+                To accomplish a task elegantly, you must learn to think in "VERB MODIFIER NOUN" sentences.
+                Because VIM is a symbol language with a formal grammatical structure, these VIM idioms describe
+                what you want to do in a somewhat natural way and are the heart of VIM wizardry.
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>VERBS</td>
+                        <td>are the thing you want to do - (c)change, (d)elete, y(ank), (v)visual etc.</td>
+                    </tr>
+                    <tr>
+                        <td>MODIFIERS</td>
+                        <td>change how nouns are understood - (i)nsert, (a)round, (t)ill, (f)ind etc.</td>
+                    </tr>
+                    <tr>
+                        <td>NOUNS</td>
+                        <td>are what you are editing - (w)ord , (s)entence, (p)aragraph, (b)lock, etc. </td>
+                    </tr>
+                    <tr>
+                        <td>TIP:</td>
+                        <td>use hjkl for small movements. If you find yourself pressing them repeatedly, there's likely a
+                            more efficient way to navigate or complete your task. Stop and think in sentences. </td>
+                    </tr>
+                    <tr>
+                        <td>Esc</td>
+                        <td>exit insert / visual mode</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+
+        <section>
+            <h3>Some examples</h3>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>diw</td>
+                        <td>delete inside word to delete word under cursor</td>
+                    </tr>
+                    <tr>
+                        <td>ciw</td>
+                        <td>change the inner word, respecting delimitation</td>
+                    </tr>
+                    <tr>
+                        <td>ci"</td>
+                        <td>change inside quotation marks to change string inside next "marks"</td>
+                    </tr>
+                    <tr>
+                        <td>ct{char}</td>
+                        <td>change everything from the cursor till the letter {char}</td>
+                    </tr>
+                    <tr>
+                        <td>vap</td>
+                        <td>visually select (around) this paragraph</td>
+                    </tr>
+                    <tr>
+                        <td>yi(</td>
+                        <td>copy everything inside the parentheses</td>
+                    </tr>
+                    <tr>
+                        <td>d2/foo</td>
+                        <td>delete from here until the second occurrence of 'foo'</td>
+                    </tr>
+                    <tr>
+                        <td>fy2wR</td>
+                        <td>find the next occurrence of 'y', move forward 2 words, and change word</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
+
+
+        <section>
+            <a href="https://neovim.io/doc/user/motion.html#_2.-left-right-motions" target="_blank">
+                <h2 class="left-ribbon" style="background-color: #243596c9;">left / backwards motions</h2>
+            </a>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>h</td>
+                        <td>left</td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>hard beginning of line</td>
+                    </tr>
+                    <tr>
+                        <td>^ / _</td>
+                        <td>soft beginning of line</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            < </td>
+                        <td>indent line left</td>
+                    </tr>
+                    <tr>
+                        <td>,</td>
+                        <td>repeat the last "f", "F", "t", "T" backward</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>inclusive (find)</td>
+                    </tr>
+                    <tr>
+                        <td>T</td>
+                        <td>(find) till</td>
+                    </tr>
+                    <td>ge / gE</td>
+                    <td>backward to word / <word-tooltip></word-tooltip> end</td>
+                    </tr>
+                    <tr>
+                        <td>b / B</td>
+                        <td>word / <word-tooltip></word-tooltip> backward</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <a href="https://neovim.io/doc/user/motion.html#_2.-left-right-motions" target="_blank">
+                <h2 class="right-ribbon" style="background-color: #5067e7;">right / forward motions</h2>
+            </a>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>w / W</td>
+                        <td>word forward / <word-tooltip></word-tooltip></td>
+                    </tr>
+                    <tr>
+                        <td>e / E</td>
+                        <td>forward to the end of word / end of <word-tooltip></word-tooltip></td>
+                    </tr>
+                    <tr>
+                        <td>t</td>
+                        <td>(find) till</td>
+                    </tr>
+                    <tr>
+                        <td>f</td>
+                        <td>inclusive (find)</td>
+                    </tr>
+                    <tr>
+                        <td>;</td>
+                        <td>repeat the last "f", "F", "t", "T" forward</td>
+                    </tr>
+                    <tr>
+                        <td>></td>
+                        <td>indent line right</td>
+                    </tr>
+                    <tr>
+                        <td>%</td>
+                        <td>find and jump to matching bracket</td>
+                    </tr>
+                    <tr>
+                        <td>$</td>
+                        <td>next end of line position</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <a href="https://neovim.io/doc/user/motion.html#_3.-up-down-motions" target="_blank">
+                <h2 class="down-ribbon" style="background-color: rgb(38, 156, 156); top: -1.8rem; ">
+                    next / downward motions
+                </h2>
+            </a>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>*</td>
+                        <td>find word under cursor</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>cursor to bottom of screen</td>
+                    </tr>
+                    <tr>
+                        <td>)</td>
+                        <td>end of <sentence-tooltip></sentence-tooltip></td>
+                    </tr>
+                    <tr>
+                        <td>}</td>
+                        <td>end of <paragraph-tooltip></paragraph-tooltip></td>
+                    </tr>
+                    <tr>
+                        <td>#G</td>
+                        <td>go to line # (e.g. 12G - go to line 12)</td>
+                    </tr>
+                    <tr>
+                        <td>G</td>
+                        <td>end of file</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <a href="https://neovim.io/doc/user/motion.html#_3.-up-down-motions" target="_blank">
+                <h2 class="up-ribbon" style="background-color: #91589c; top: -3.3rem;">previous / upward motions</h2>
+            </a>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>gg</td>
+                        <td>first line</td>
+                    </tr>
+                    <tr>
+                        <td>H</td>
+                        <td>move cursor to top of screen</td>
+                    </tr>
+                    <tr>
+                        <td>{</td>
+                        <td>move to beginning of <paragraph-tooltip></paragraph-tooltip></td>
+                    </tr>
+                    <tr>
+                        <td>(</td>
+                        <td>move to beginning of <sentence-tooltip></sentence-tooltip></td>
+                    </tr>
+                    <tr>
+                        <td>#</td>
+                        <td>find word under cursor</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>cursor to middle of screen</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <a href="https://neovim.io/doc/user/motion.html#_3.-up-down-motions" target="_blank">
+                <h2 class="ribbon" style="background-color: #918730;">jump motions</h2>
+            </a>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Ctrl-o</td>
+                        <td>Navigate backward in jump list</td>
+                    </tr>
+                    <tr>
+                        <td>Ctrl-i</td>
+                        <td>Navigate forward in jump list</td>
+                    </tr>
+                    <tr>
+                        <td>K</td>
+                        <td>opens definition or documentation for keyword under cursor</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <a href="https://neovim.io/doc/user/tips.html#restore-position" target="_blank">
+                <h2 class="ribbon" style="background-color: #72493b;"> Mark Position</h2>
+            </a>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>mc</td>
+                        <td>mark current position as 'c'</td>
+                    </tr>
+                    <tr>
+                        <td>`c</td>
+                        <td>move cursor to 'c'</td>
+                    </tr>
+                    <tr>
+                        <td>``</td>
+                        <td>return to previous context</td>
+                    </tr>
+                    <tr>
+                        <td>'c</td>
+                        <td>move to the beginning of the line containing mark c</td>
+                    </tr>
+                    <tr>
+                        <td>:marks</td>
+                        <td>list of marks</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+        <div class="section-container ">
+            <section>
+                <a href="https://neovim.io/doc/user/vimindex.html#insert-index" target="_blank">
+                    <h2 class="ribbon" style="background-color: #ca0909">Insert Mode</h2>
+                </a>
+
+                <table>
+                    <tbody>
+
+                        <tr>
+                            <td>i</td>
+                            <td>Insert before the cursor</td>
+                        </tr>
+                        <tr>
+                            <td>I</td>
+                            <td>insert at the beginning of the line</td>
+                        </tr>
+                        <tr>
+                            <td>a</td>
+                            <td>append after the cursor</td>
+                        </tr>
+                        <tr>
+                            <td>A</td>
+                            <td>append at the end of the line</td>
+                        </tr>
+                        <tr>
+                            <td>o</td>
+                            <td>open new line below the current one</td>
+                        </tr>
+                        <tr>
+                            <td>O</td>
+                            <td>open new line above the current one</td>
+                        </tr>
+                        <tr>
+                            <td>ea</td>
+                            <td>append at the end of the word</td>
+                        </tr>
+                        <tr>
+                            <td>#gI</td>
+                            <td>insert text # times</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+
+
+            <section>
+                <h2 class="ribbon" style="background-color: #ff0881;">Editing</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>r</td>
+                            <td>Replace single character</td>
+                        </tr>
+                        <tr>
+                            <td>R</td>
+                            <td>Enter replace mode</td>
+                        </tr>
+                        <tr>
+                            <td>J</td>
+                            <td>join line below to current one with one space in between them</td>
+                        </tr>
+                        <tr>
+                            <td>gJ</td>
+                            <td>join line below to current one with with no space</td>
+                        </tr>
+                        <tr>
+                            <td>cc</td>
+                            <td>change entire line</td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td>change to the end of line</td>
+                        </tr>
+                        <tr>
+                            <td>c(m)</td>
+                            <td>change with (m)modifier: wWeBbfTtTia</td>
+                        </tr>
+                        <tr>
+                            <td>ciw</td>
+                            <td>change inner word</td>
+                        </tr>
+                        <tr>
+                            <td>s</td>
+                            <td>delete character and substitute text</td>
+                        </tr>
+                        <tr>
+                            <td>S</td>
+                            <td>delete line and substitute text</td>
+                        </tr>
+                        <tr>
+                            <td>xp</td>
+                            <td>transpose two letters (ia -> ai)</td>
+                        </tr>
+                        <tr>
+                            <td>u</td>
+                            <td>undo</td>
+                        </tr>
+                        <tr>
+                            <td>U</td>
+                            <td>redo</td>
+                        </tr>
+                        <tr>
+                            <td>.</td>
+                            <td>repeat last command</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+
+        <section>
+            <a href="https://neovim.io/doc/user/pattern.html#search-commands" target="_blank">
+                <h2 class="ribbon" style="background-color: #ff6f01;">Pattern Search</h2>
+            </a>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td>/{pattern}</td>
+                        <td>search for pattern forward</td>
+                    </tr>
+                    <tr>
+                        <td>?{pattern}</td>
+                        <td>search for pattern backwards</td>
+                    </tr>
+                    <tr>
+                        <td>/a</td>
+                        <td>find the character 'a'</td>
+                    </tr>
+                    <tr>
+                        <td>/^a</td>
+                        <td>finds line that has 'a' as first character</td>
+                    </tr>
+                    <tr>
+                        <td>/[abc] -> /jo[ha]n</td>
+                        <td>find string containing any of the letters in the brackets -> john or joan</td>
+                    </tr>
+                    <tr>
+                        <td>/\$</td>
+                        <td>escape special characters e.g. search /$ or /. won't work</td>
+                    </tr>
+                    <tr>
+                        <td>/*A</td>
+                        <td> finds lines containing "A" preceded by any characters</td>
+                    </tr>
+                    <tr>
+                        <td>/x|y</td>
+                        <td>finds x or y</td>
+                    </tr>
+                    <tr>
+                        <td>/r.d</td>
+                        <td>finds 'rad' or 'rod' or 'rid' period matches any single character</td>
+                    </tr>
+                    <tr>
+                        <td>/\&lt;the</td>
+                        <td>finds "the" at the beginning of words (e.g., in "the", "theater",
+                            "then)</td>
+                    </tr>
+                    <tr>
+                        <td>/the\&gt;</td>
+                        <td>finds "the" at the end of words (e.g., in "the", "breathe")
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>/\&lt;the\&gt;</td>
+                        <td>find exact literal word "the". The leading "/" </td>
+                    </tr>
+                    <tr>
+                        <td>n</td>
+                        <td>move to the next match (same direction as the last search)</td>
+                    </tr>
+                    <tr>
+                        <td>N</td>
+                        <td>Move to the previous match (opposite direction of the last search)</td>
+                    </tr>
+                    <tr>
+                        <td>\v{pattern}</td>
+                        <td>
+                            <a href="https://neovim.io/doc/user/pattern.html#%2F%5Cv" target="_blank">
+
+                                "Very magic": regex by default -> /\v. (find any char)
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\V{pattern}</td>
+                        <td>
+                            <a href="https://neovim.io/doc/user/pattern.html#%2F%5Cv" target="_blank">
+                                "Very nomagic": only \ special -> /\V. (find literal ".") </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>\c{pattern}</td>
+                        <td>
+                            <a href="https://neovim.io/doc/user/pattern.html#%2F%5Cc" target="_blank">
+                                Case-insensitive search for the current pattern.
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>gd</td>
+                        <td>goto local declaration of identifier under cursor</td>
+                    </tr>
+                    <tr>
+                        <td>gD</td>
+                        <td>goto global declaration of identifier under cursor</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </section>
+
+
+        <section>
+            <a href="https://neovim.io/doc/user/change.html#%3Ad" target="_blank">
+                <h2 class="ribbon" style="background-color: #d80404">Delete</h2>
+            </a>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>dd</td>
+                        <td>delete current line</td>
+                    </tr>
+                    <tr>
+                        <td>#dd</td>
+                        <td>delete # of lines downward from cursor</td>
+                    </tr>
+                    <tr>
+                        <td>#dm</td>
+                        <td>delete # of lines in direction of m (hjkl) movement </td>
+                    </tr>
+                    <tr>
+                        <td>D</td>
+                        <td>delete to end of line</td>
+                    </tr>
+                    <tr>
+                        <td>dw</td>
+                        <td>delete until word</td>
+                    </tr>
+                    <tr>
+                        <td>x</td>
+                        <td>delete character at cursor</td>
+                    </tr>
+                    <tr>
+                        <td>X</td>
+                        <td>delete character backwards from cursor</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <a href="https://neovim.io/doc/user/change.html#copy-move" target="_blank">
+                <h2 class="ribbon" style="background-color: #2f7215;">Copy & Paste</h2>
+            </a>
+            <table>
+                <tbody>
+
+                    <tr>
+                        <td>yy / Y</td>
+                        <td title="yoink">yank (copy) a line</td>
+                    </tr>
+                    <tr>
+                        <td>#Y</td>
+                        <td>yank # of lines</td>
+                    </tr>
+                    <tr>
+                        <td>yw</td>
+                        <td>yank from cursor to start of next word</td>
+                    </tr>
+                    <tr>
+                        <td>y#m</td>
+                        <td>yank # of lines in direction of m (hjkl) movement </td>
+                    </tr>
+                    <tr>
+                        <td>"ayy</td>
+                        <td>yank current line into named buffer a</td>
+                    </tr>
+                    <tr>
+                        <td>P</td>
+                        <td>put (paste) after the cursor</td>
+                    </tr>
+                    <tr>
+                        <td>p</td>
+                        <td>put before the cursor</td>
+                    </tr>
+                    <tr>
+                        <td>"aP</td>
+                        <td>put text from buffer a before cursor</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <a href="https://neovim.io/doc/user/scroll.html#scrolling" target="_blank">
+                <h2 class="ribbon" style="background-color: #009889;">Scroll Movement</h2>
+            </a>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>zz</td>
+                        <td>cursor line to center of screen</td>
+                    </tr>
+                    <tr>
+                        <td>zt</td>
+                        <td>cursor line to top of screen</td>
+                    </tr>
+                    <tr>
+                        <td>zb</td>
+                        <td>cursor line to bottom of screen</td>
+                    </tr>
+                    <tr>
+                        <td>Ctrl-e</td>
+                        <td>move screen froward one line</td>
+                    </tr>
+                    <tr>
+                        <td>Ctrl-y</td>
+                        <td>move screen backward one line</td>
+                    </tr>
+                    <tr>
+                        <td>Ctrl-d</td>
+                        <td>move forward half a screen</td>
+                    </tr>
+                    <tr>
+                        <td>Ctrl-u</td>
+                        <td>move backward half a screen</td>
+                    </tr>
+                    <tr>
+                        <td>Ctrl-f</td>
+                        <td>move forward a full screen</td>
+                    </tr>
+                    <tr>
+                        <td>Ctrl-b</td>
+                        <td>move backward a full screen</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <a href="https://neovim.io/doc/user/visual.html#Visual" target="_blank">
+                <h2 class="ribbon" style="background-color: #a816c1;">Visual Mode</h2>
+            </a>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>v</td>
+                        <td>start visual mode, mark lines, then perform command (like yank)</td>
+                    </tr>
+                    <tr>
+                        <td>V</td>
+                        <td>start linewise visual mode</td>
+                    </tr>
+                    <tr>
+                        <td>o</td>
+                        <td>move to other end of marked area</td>
+                    </tr>
+                    <tr>
+                        <td>Ctrl-v</td>
+                        <td>start visual-block mode (vertical selection)</td>
+                    </tr>
+                    <tr>
+                        <td>O</td>
+                        <td> <a href="https://neovim.io/doc/user/visual.html#visual-change" target="_blank">move to
+                                other corner of a block</a> </td>
+                    </tr>
+                    </a>
+                    <tr>
+                        <td>aw</td>
+                        <td>highlight/select a word</td>
+                    </tr>
+                    <tr>
+                        <td>ab</td>
+                        <td>select block (with parentheses)
+                    </tr>
+                    <tr>
+                        <td>aB</td>
+                        <td>select block {with braces}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <a href="https://neovim.io/doc/user/change.html#case" target="_blank">
+                <h2 class="ribbon" style="background-color: #afeb00;">Case</h2>
+            </a>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            ~
+                        </td>
+                        <td>switch char case, move forward</td>
+                    </tr>
+                    <tr>
+                        <td>vEU</td>
+                        <td>uppercase <word-tooltip></word-tooltip></td>
+                    </tr>
+                    <tr>
+                        <td>vu</td>
+                        <td>lowercase <word-tooltip></word-tooltip></td>
+                    </tr>
+                    <tr>
+                        <td>VU</td>
+                        <td>uppercase line</td>
+                    </tr>
+                    <tr>
+                        <td>vu</td>
+                        <td>lowercase line</td>
+                    <tr>
+                        <td>vE~/g~~</td>
+                        <td>invert case for word/line</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+        <section>
+            <a href="https://neovim.io/doc/user/usr_12.html#_replace-a-word">
+                <h2 class="ribbon" style="background-color: #ed3800">Replace</h2>
+            </a>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td>:s/old/new</td>
+                        <td>replace next old with new</td>
+                    </tr>
+                    <tr>
+                        <td>:s/old/new/g</td>
+                        <td>replace instances of old with new in current line</td>
+                    </tr>
+                    <tr>
+                        <td>:%s/old/new/g</td>
+                        <td>replace all old with new throughout file</td>
+                    </tr>
+                    <tr>
+                        <td>:%s/old/new/gc</td>
+                        <td>replace all old with new in file with confirmations</td>
+                    </tr>
+                    <tr>
+                        <td>:2,9s/x/y/gi</td>
+                        <td>replace instances of x with y between lines 2 to 9 inclusive, ignore case</td>
+                    </tr>
+                    <tr>
+                        <td>:[g/v]/x/d</td>
+                        <td>delete lines [containing/not containing] instances of string x</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <div class="section-container">
+            <section>
+                <a href="https://neovim.io/doc/user/repeat.html#repeating" target="_blank">
+                    <h2 class="ribbon" style="background-color: #00aaf8;">Macros</h2>
+                </a>
+                <table>
+                    <tr>
+                        <td>qa</td>
+                        <td>record macro at register 'a'</td>
+                    </tr>
+
+                    <tr>
+                        <td>q</td>
+                        <td>stop recording macro</td>
+                    </tr>
+                    <tr>
+                        <td>@a</td>
+                        <td>run macro</td>
+                    </tr>
+                    <tr>
+                        <td>@@</td>
+                        <td>rerun last macro</td>
+                    </tr>
+                </table>
+            </section>
+
+
+            <section>
+                <a href="https://neovim.io/doc/user/change.html#%3Areg" target="_blank">
+                    <h2 class="ribbon" style="background-color: #ffc229;">Registers</h2>
+                </a>
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>:reg</td>
+                            <td>show register content</td>
+                        </tr>
+                        <tr>
+                            <td>"xy</td>
+                            <td>yank into register 'x'</td>
+                        </tr>
+                        <tr>
+                            <td>"xp</td>
+                            <td>paste contents of register 'x'</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+        <section>
+            <a href="https://neovim.io/doc/user/vimindex.html#Ex-commands" target="_blank">
+                <h2 class="ribbon" style="background-color: #3047c4;">EX Commands</h2>
+            </a>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>:wq or ZZ</td>
+                        <td>write (save) and quit file</td>
+                    </tr>
+                    <tr>
+                        <td>:w!</td>
+                        <td>write file overriding protection</td>
+                    </tr>
+                    <tr>
+                        <td>:q!</td>
+                        <td>quit file (discarding any changes)</td>
+                    </tr>
+                    <tr>
+                        <td>:! command</td>
+                        <td>give UNIX command</td>
+                    </tr>
+                    <tr>
+                        <td>:r file</td>
+                        <td>read file contents into curr. file</td>
+                    </tr>
+                    <tr>
+                        <td>:map x &lt;s&gt;</td>
+                        <td>define keystroke x as a command sequence</td>
+                    </tr>
+                    <tr>
+                        <td>:unmap x</td>
+                        <td>disable the map for x</td>
+                    </tr>
+                    <tr>
+                        <td>:ab a p</td>
+                        <td>abbreviate p as a; when a is typed in insert mode, it expands to full words or phrases (p)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>:unab a</td>
+                        <td>disable abbreviation for a</td>
+                    </tr>
+                    <tr>
+                        <td>:set [all]</td>
+                        <td>display options set by user; if all is included, shows default options as well</td>
+                    </tr>
+                    <tr>
+                        <td>:set o</td>
+                        <td>activate option o</td>
+                    </tr>
+                    <tr>
+                        <td>:set o=v</td>
+                        <td>assign value v to option o</td>
+                    </tr>
+                    <tr>
+                        <td>:set noU</td>
+                        <td>deactivate option U</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2 class="ribbon" style="background-color: rgb(95, 90, 90);">init.lue</h2>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem; font-size: small;">
+                <div>
+                    Alternatively, set the following option in your <code>init.lua</code> file to reduce the need for
+                    <span style="font-size: medium;">\c</span>
+                </div>
+                <div>
+                    <code>vim.opt.ignorecase = true</code>
+                    <a href="https://neovim.io/doc/user/options.html#'ignorecase'" target="_blank">
+                        (Sets all searches to be case-insensitive by default)
+                    </a>
+                </div>
+                <div>
+                    <code>vim.opt.smartcase = true</code>
+                    <a href="https://neovim.io/doc/user/options.html#'smartcase'" target="_blank">
+                        (Overrides <code>ignorecase</code>; case-sensitive if uppercase letters are used)
+                    </a>
+                </div>
+
+            </div>
+
+            <table>
+                <tbody>
+
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <footer>
+        <p>Inspired by <a href="https://www.reddit.com/r/vim/comments/18b1nqj/neovim_cheat_sheet/#lightbox"
+                target="_blank">this
+                post</a></p>
+
+        <p>I use neovim by the way - ThePrimeagen</p>
+    </footer>
+</body>
+
+</html>
