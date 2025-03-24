@@ -17,7 +17,7 @@
 <body>
     <div style="display: flex;align-items: center; gap: 1rem; margin-bottom: 2rem;">
         <img src="neovim-mark.svg" alt="" style="height: 4rem;">
-        <a href="https://neovim.io/doc/user/quickref.html#quickref" target="_blank">
+        <a href="https://neovim.io/doc/user/quickref.html#quickref" target="b_blank" rel="noopener noreferrer">
             <h1 style="color: #4f9946;"><span style="font-weight:100;">neo</span>vim <span style="color: #fff;">Cheat
                     Sheet</span> </h1>
         </a>
@@ -104,7 +104,8 @@
 
 
         <section>
-            <a href="https://neovim.io/doc/user/motion.html#_2.-left-right-motions" target="_blank">
+            <a href="https://neovim.io/doc/user/motion.html#_2.-left-right-motions" target="b_blank"
+                rel="noopener noreferrer">
                 <h2 class="left-ribbon" style="background-color: #243596c9;">left / backwards motions</h2>
             </a>
             <table>
@@ -150,7 +151,8 @@
         </section>
 
         <section>
-            <a href="https://neovim.io/doc/user/motion.html#_2.-left-right-motions" target="_blank">
+            <a href="https://neovim.io/doc/user/motion.html#_2.-left-right-motions" target="b_blank"
+                rel="noopener noreferrer">
                 <h2 class="right-ribbon" style="background-color: #5067e7;">right / forward motions</h2>
             </a>
             <table>
@@ -192,7 +194,8 @@
         </section>
 
         <section>
-            <a href="https://neovim.io/doc/user/motion.html#_3.-up-down-motions" target="_blank">
+            <a href="https://neovim.io/doc/user/motion.html#_3.-up-down-motions" target="b_blank"
+                rel="noopener noreferrer">
                 <h2 class="down-ribbon" style="background-color: rgb(38, 156, 156); top: -1.8rem; ">
                     next / downward motions
                 </h2>
@@ -228,7 +231,8 @@
         </section>
 
         <section>
-            <a href="https://neovim.io/doc/user/motion.html#_3.-up-down-motions" target="_blank">
+            <a href="https://neovim.io/doc/user/motion.html#_3.-up-down-motions" target="b_blank"
+                rel="noopener noreferrer">
                 <h2 class="up-ribbon" style="background-color: #91589c; top: -3.3rem;">previous / upward motions</h2>
             </a>
             <table>
@@ -262,7 +266,8 @@
         </section>
 
         <section>
-            <a href="https://neovim.io/doc/user/motion.html#_3.-up-down-motions" target="_blank">
+            <a href="https://neovim.io/doc/user/motion.html#_3.-up-down-motions" target="b_blank"
+                rel="noopener noreferrer">
                 <h2 class="ribbon" style="background-color: #918730;">jump motions</h2>
             </a>
             <table>
@@ -285,7 +290,7 @@
         </section>
 
         <section>
-            <a href="https://neovim.io/doc/user/tips.html#restore-position" target="_blank">
+            <a href="https://neovim.io/doc/user/tips.html#restore-position" target="b_blank" rel="noopener noreferrer">
                 <h2 class="ribbon" style="background-color: #72493b;"> Mark Position</h2>
             </a>
             <table>
@@ -317,7 +322,8 @@
 
         <div class="section-container ">
             <section>
-                <a href="https://neovim.io/doc/user/vimindex.html#insert-index" target="_blank">
+                <a href="https://neovim.io/doc/user/vimindex.html#insert-index" target="b_blank"
+                    rel="noopener noreferrer">
                     <h2 class="ribbon" style="background-color: #ca0909">Insert Mode</h2>
                 </a>
 
@@ -392,7 +398,31 @@
                         </tr>
                         <tr>
                             <td>c(m)</td>
-                            <td><a href="https://neovim.io/doc/user/quickref.html#Q_ch">change with (m)odifier: w W e B b f T t T i a</a></td>
+                            <td data-tooltip='
+c   deletes text and enters insert mode
+
+cw   change word
+cW   change WORD
+ce   change to word end
+cE   change to WORD end
+cb   change to word start
+cB   change to WORD start
+cf {char}   change to next {char}
+cF {char}   change to prev {char}
+ct {char}   change till next {char}
+cT {char}   change till prev {char}
+ciw   change inner word
+ciW   change inner WORD
+cit   change inner tag
+
+ci {delimiter}: change text inside matching delimiters. ci followed by one of: (, {, [, ", &#39;, &lt;, t, <, >
+
+ca {delimiter}: change text including matching delimiters. ca followed by one of: (, {, [, ", &#39;, &lt;, t , <, >
+
+cib: change inside parentheses ()
+ciB: change inside curly braces {}
+                            '><a href="https://neovim.io/doc/user/quickref.html#Q_ch">change with (m)odifier: w W e B b
+                                    f T t T i a</a></td>
                         </tr>
                         <tr>
                             <td>ciw</td>
@@ -424,7 +454,8 @@
                         </tr>
                         <tr>
                             <td>:norm aMiau</td>
-                            <td><a href="https://neovim.io/doc/user/various.html#%3Anorm" target="_blank"> appends
+                            <td><a href="https://neovim.io/doc/user/various.html#%3Anorm" target="b_blank"
+                                    rel="noopener noreferrer"> appends
                                     "Miau" after cursor</a></td>
                         </tr>
                         <tr>
@@ -442,7 +473,8 @@
 
 
         <section>
-            <a href="https://neovim.io/doc/user/pattern.html#search-commands" target="_blank">
+            <a href="https://neovim.io/doc/user/pattern.html#search-commands" target="b_blank"
+                rel="noopener noreferrer">
                 <h2 class="ribbon" style="background-color: #ff6f01;">Pattern Search</h2>
             </a>
             <table>
@@ -508,7 +540,8 @@
                     <tr>
                         <td>\v{pattern}</td>
                         <td>
-                            <a href="https://neovim.io/doc/user/pattern.html#%2F%5Cv" target="_blank">
+                            <a href="https://neovim.io/doc/user/pattern.html#%2F%5Cv" target="b_blank"
+                                rel="noopener noreferrer">
 
                                 "Very magic": regex by default -> /\v. (find any char)
                             </a>
@@ -517,14 +550,16 @@
                     <tr>
                         <td>\V{pattern}</td>
                         <td>
-                            <a href="https://neovim.io/doc/user/pattern.html#%2F%5Cv" target="_blank">
+                            <a href="https://neovim.io/doc/user/pattern.html#%2F%5Cv" target="b_blank"
+                                rel="noopener noreferrer">
                                 "Very nomagic": only \ special -> /\V. (find literal ".") </a>
                         </td>
                     </tr>
                     <tr>
                         <td>\c{pattern}</td>
                         <td>
-                            <a href="https://neovim.io/doc/user/pattern.html#%2F%5Cc" target="_blank">
+                            <a href="https://neovim.io/doc/user/pattern.html#%2F%5Cc" target="b_blank"
+                                rel="noopener noreferrer">
                                 Case-insensitive search for the current pattern.
                             </a>
                         </td>
@@ -544,7 +579,7 @@
 
 
         <section>
-            <a href="https://neovim.io/doc/user/change.html#%3Ad" target="_blank">
+            <a href="https://neovim.io/doc/user/change.html#%3Ad" target="b_blank" rel="noopener noreferrer">
                 <h2 class="ribbon" style="background-color: #d80404">Delete</h2>
             </a>
             <table>
@@ -582,7 +617,7 @@
             </table>
         </section>
         <section>
-            <a href="https://neovim.io/doc/user/change.html#copy-move" target="_blank">
+            <a href="https://neovim.io/doc/user/change.html#copy-move" target="b_blank" rel="noopener noreferrer">
                 <h2 class="ribbon" style="background-color: #2f7215;">Copy & Paste</h2>
             </a>
             <table>
@@ -625,7 +660,7 @@
         </section>
 
         <section>
-            <a href="https://neovim.io/doc/user/scroll.html#scrolling" target="_blank">
+            <a href="https://neovim.io/doc/user/scroll.html#scrolling" target="b_blank" rel="noopener noreferrer">
                 <h2 class="ribbon" style="background-color: #009889;">Scroll Movement</h2>
             </a>
             <table>
@@ -671,7 +706,7 @@
         </section>
 
         <section>
-            <a href="https://neovim.io/doc/user/visual.html#Visual" target="_blank">
+            <a href="https://neovim.io/doc/user/visual.html#Visual" target="b_blank" rel="noopener noreferrer">
                 <h2 class="ribbon" style="background-color: #a816c1;">Visual Mode</h2>
             </a>
             <table>
@@ -694,7 +729,8 @@
                     </tr>
                     <tr>
                         <td>O</td>
-                        <td> <a href="https://neovim.io/doc/user/visual.html#visual-change" target="_blank">move to
+                        <td> <a href="https://neovim.io/doc/user/visual.html#visual-change" target="b_blank"
+                                rel="noopener noreferrer">move to
                                 other corner of a block</a> </td>
                     </tr>
                     </a>
@@ -714,7 +750,7 @@
             </table>
         </section>
         <section>
-            <a href="https://neovim.io/doc/user/change.html#case" target="_blank">
+            <a href="https://neovim.io/doc/user/change.html#case" target="b_blank" rel="noopener noreferrer">
                 <h2 class="ribbon" style="background-color: #afeb00;">Case</h2>
             </a>
             <table>
@@ -794,7 +830,7 @@
         </section>
         <div class="section-container">
             <section>
-                <a href="https://neovim.io/doc/user/repeat.html#repeating" target="_blank">
+                <a href="https://neovim.io/doc/user/repeat.html#repeating" target="b_blank" rel="noopener noreferrer">
                     <h2 class="ribbon" style="background-color: #00aaf8;">Macros</h2>
                 </a>
                 <table>
@@ -820,7 +856,7 @@
 
 
             <section>
-                <a href="https://neovim.io/doc/user/change.html#%3Areg" target="_blank">
+                <a href="https://neovim.io/doc/user/change.html#%3Areg" target="b_blank" rel="noopener noreferrer">
                     <h2 class="ribbon" style="background-color: #ffc229;">Registers</h2>
                 </a>
 
@@ -843,7 +879,7 @@
             </section>
         </div>
         <section>
-            <a href="https://neovim.io/doc/user/vimindex.html#Ex-commands" target="_blank">
+            <a href="https://neovim.io/doc/user/vimindex.html#Ex-commands" target="b_blank" rel="noopener noreferrer">
                 <h2 class="ribbon" style="background-color: #3047c4;">EX Commands</h2>
             </a>
             <table>
@@ -913,13 +949,15 @@
                 </div>
                 <div>
                     <code>vim.opt.ignorecase = true</code>
-                    <a href="https://neovim.io/doc/user/options.html#'ignorecase'" target="_blank">
+                    <a href="https://neovim.io/doc/user/options.html#'ignorecase'" target="b_blank"
+                        rel="noopener noreferrer">
                         (Sets all searches to be case-insensitive by default)
                     </a>
                 </div>
                 <div>
                     <code>vim.opt.smartcase = true</code>
-                    <a href="https://neovim.io/doc/user/options.html#'smartcase'" target="_blank">
+                    <a href="https://neovim.io/doc/user/options.html#'smartcase'" target="b_blank"
+                        rel="noopener noreferrer">
                         (Overrides <code>ignorecase</code>; case-sensitive if uppercase letters are used)
                     </a>
                 </div>
@@ -932,10 +970,15 @@
                 </tbody>
             </table>
         </section>
+        <section>
+            <h2 class="ribbon" style="background-color: #009889;">Setup</h2>
+            <a href="https://github.com/nvim-lua/kickstart.nvim" target="b_blank"
+                rel="noopener noreferrer">kickstart.nvim</a>
+        </section>
     </div>
     <footer>
         <p>Inspired by <a href="https://www.reddit.com/r/vim/comments/18b1nqj/neovim_cheat_sheet/#lightbox"
-                target="_blank">this
+                target="b_blank" rel="noopener noreferrer">this
                 post</a></p>
 
         <p>I use neovim by the way - ThePrimeagen</p>
